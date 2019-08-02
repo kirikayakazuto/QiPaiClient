@@ -1,16 +1,10 @@
-import WebSession from "./WebSession";
 import ProtoManager, { Message } from "../protocol/ProtoBufManager";
+import HttpManager from "./HttpManager";
 
-export default class NetWorkManager {
-    private static instance: NetWorkManager = null;
-    public static getInstance() {
-        if(this.instance === null) {
-            this.instance = new NetWorkManager();
-        }
-        return this.instance;
-    }
+class NetWorkManager {
+    
     /**  */
-    private _servicesHandlerMap: {[key: number]: Array<ElementEvent>} = null;
+    private _servicesHandlerMap: {[key: number]: Array<ElementEvent>} = {};
 
     /** 注册一个服务, 如果你注册了这个自定义服务, 那么这个服务可以发送消息给你 */
     public registServiceHandler(stype: number, callback: Function, target: any) {
@@ -32,7 +26,18 @@ export default class NetWorkManager {
         }
     }
 
-    private webSession: WebSession = null;
+    private webSession: WebSocket = null;
+    /** 连接网络 */
+    public connectNetWork(url: string) {
+        HttpManager.Get(url, (err, data) => {
+            if(err) {
+                return ;
+            }
+            data = JSON.parse(data);
+            let wsurl = `ws://${data.host}:${data.port}`;
+            this.connectServer(wsurl);
+        });
+    }
 
     /** 连接websocket */
     public connectServer(url: string) {
@@ -54,19 +59,19 @@ export default class NetWorkManager {
     }
 
     /** 发送一条消息 */
-    public sendMessage(stype: number, ctype: number, body: Uint8Array) {
+    public sendMessage(stype: number, ctype: number, body: Uint8Array, code: number) {
         if(!this.checkIsConnect()) {
             return ;
         }
-        let buffer = ProtoManager.getInstance().encodeMessage(new Message(stype, ctype, body));
-        console.log(buffer);
+        let buffer = ProtoManager.getInstance().encodeMessage(new Message(stype, ctype, body, code));
+        console.log("send success")
         this.webSession.send(buffer);
     }
 
     /** 收到了服务端发送来的数据 */
-    private clientRecvMessage(message: Uint8Array) {
+    private clientRecvMessage(message: ArrayBuffer) {
         let m = ProtoManager.getInstance().decodeMessage(message);
-        cc.log(`收到一个服务端消息${m}`);
+        cc.log(`收到一个服务端消息:stype: ${m.stype} ctype: ${m.ctype}`);
         let arr = this._servicesHandlerMap[m.stype];
         if(arr === undefined) {
             cc.log(`收到未知stype的消息, stype: ${m.stype}`);
@@ -78,6 +83,7 @@ export default class NetWorkManager {
     }
     /** 关闭websession */
     public closeWebSession() {
+        cc.log(`连接发生异常, 即将关闭!`);
         if(
             !this.webSession ||
             this.webSession.readyState === this.webSession.CLOSING || 
@@ -101,3 +107,5 @@ class ElementEvent {
     callback: Function;
     target: any;
 }
+
+export default new NetWorkManager();

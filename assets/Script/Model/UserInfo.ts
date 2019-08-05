@@ -10,7 +10,8 @@ export class UserInfo {
     public gender      : number;
     public exp         : number;
     public avatarUrl   : string;
-    public diamonds    : number;
+    public chip    : number;
+    public roomCard: number;
     public personalSign: string;
 
     public data        : number;

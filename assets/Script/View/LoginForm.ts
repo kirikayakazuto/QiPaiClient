@@ -1,8 +1,6 @@
 import BaseUIForm from "../UIFrameWorld/BaseUIForm";
 import UIType from "../UIFrameWorld/UIType";
 import { UIFormType } from "../UIFrameWorld/config/SysDefine";
-import NetworkManager from "../common/NetworkManager";
-import localStorageManager from "../common/LocalStorageManager"
 import UserManager from "../common/UserManager";
 import HttpManager from "../common/HttpManager";
 import GEventManager from "../UIFrameWorld/GEventManager";

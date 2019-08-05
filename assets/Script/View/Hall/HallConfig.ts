@@ -21,5 +21,10 @@ export const HallConfig = {
             roomType: "gaoji2"
         }
     ]
-
+}
+/** 大厅样式 */
+export enum HallSceneType {
+    Normal = 1,
+    ChooseRoom = 2,
+    FriendRoom = 3,
 }

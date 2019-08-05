@@ -1,10 +1,11 @@
 import BaseUIForm from "../../UIFrameWorld/BaseUIForm";
 import UIType from "../../UIFrameWorld/UIType";
 import { UIFormType } from "../../UIFrameWorld/config/SysDefine";
-import { HallConfig } from "./HallConfig";
+import { HallConfig, HallSceneType } from "./HallConfig";
 import UtilHelper from "../../Helper/UtilHelper";
 import AdaptationManager, { AdaptationType } from "../../UIFrameWorld/AdaptationManager";
 import UIManager from "../../UIFrameWorld/UIManager";
+import GEventManager from "../../UIFrameWorld/GEventManager";
 
 const {ccclass, property} = cc._decorator;
 
@@ -19,15 +20,31 @@ export default class ChooseRoomForm extends BaseUIForm {
     CloseNode: cc.Node = null;
 
     init() {
-        AdaptationManager.GetInstance().adaptationFormByType(AdaptationType.Right, this.node, 50);
     }
 
     start () {
         this.initChoose();
         this.CloseNode.on('click', () => {
-            this.CloseUIForm();
+            GEventManager.emit("HallSceneType", HallSceneType.Normal);
         }, this)
-        
+        GEventManager.on("HallSceneType", this.switchHallSceneType, this);
+    }
+
+    switchHallSceneType(type: any) {
+        AdaptationManager.GetInstance().removeAdaptationToForm(this.node);
+        switch(type) {
+            case HallSceneType.Normal:
+                this.node.runAction(cc.moveBy(0.3, cc.v2(this.node.width + 70, 0)).easing(cc.easeBackIn()));
+            break;
+            case HallSceneType.ChooseRoom:
+                this.node.runAction(cc.sequence(
+                    cc.moveBy(0.3, cc.v2(-(this.node.width + 70), 0)).easing(cc.easeBackIn()),
+                    cc.callFunc(()=>{
+                        AdaptationManager.GetInstance().adaptationFormByType(AdaptationType.Right, this.node, 50);
+                    })
+                ));
+            break;
+        }
     }
     
     public initChoose() {
@@ -72,15 +89,7 @@ export default class ChooseRoomForm extends BaseUIForm {
         callback();
     }
     HidePopUpAnimation(callback: Function) {
-        AdaptationManager.GetInstance().removeAdaptationToForm(this.node);
-        this.node.runAction(cc.sequence(
-            cc.moveBy(0.3, cc.v2(this.node.width + 70, 0)).easing(cc.easeBackIn()),
-            cc.delayTime(0.1),
-            cc.callFunc(() => {
-                callback();
-                UIManager.GetInstance().ShowUIForms("UIForms/CreateRoomForm");
-            })
-        ));
+        callback();
     }
 
     // update (dt) {}

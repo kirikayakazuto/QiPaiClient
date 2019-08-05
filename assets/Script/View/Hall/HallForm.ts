@@ -26,5 +26,5 @@ export default class HallForm extends BaseUIForm {
         let role = cc.find("role", this.node)
         role.runAction(cc.repeatForever(cc.sequence(cc.scaleTo(5, 1.1),  cc.scaleTo(5, 1))));
     }
-    // update (dt) {}
+    update (dt) {}
 }

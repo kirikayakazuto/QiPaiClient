@@ -24,6 +24,16 @@ class UtilHelper {
             }
         }
     }
+    /** 格式化数值为字符串 */
+    public fomatNumFloorToString(num: number) {
+        let str = "";
+        if(num > 10000) {
+            str = Math.floor(num/10000) + "万";
+        }else if(num >= 1000) {
+            str = Math.floor(num/1000)+ "千"
+        }
+        return str;
+    }
 }
 
 export default new UtilHelper();

@@ -1790,6 +1790,7 @@ declare namespace cc {
 	 - 支持对任意对象的任意属性进行缓动，不再局限于节点上的属性，而 cc.Action 添加一个属性的支持时还需要添加一个新的 action 类型。
 	 - 支持与 cc.Action 混用
 	 - 支持设置 {{#crossLink "Easing"}}{{/crossLink}} 或者 progress 函数 */
+	
 	export class Tween {		
 		/**
 		!#en
@@ -1944,6 +1945,7 @@ declare namespace cc {
 		*/
 		tween(target?: any): Tween;	
 	}	
+	export function tween(target: any): Tween;
 	/** !#en Class for animation data handling.
 	!#zh 动画剪辑，用于存储动画数据。 */
 	export class AnimationClip extends Asset {		

@@ -5,7 +5,7 @@ const {ccclass, property} = cc._decorator;
 export default class Helloworld extends cc.Component {
 
     start () { 
-        UIManager.GetInstance().ShowUIForms("UIForms/LoginForm")
+        UIManager.GetInstance().ShowUIForms("UIForms/HallForm")
     }
 
     

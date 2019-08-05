@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "1cc66c85-8dfa-485d-9580-1d1d855067c1",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "房间字体颜色示意图2": {
+      "ver": "1.0.4",
+      "uuid": "160c72f3-c12b-44e1-84e0-6c7c0dc43950",
+      "rawTextureUuid": "1cc66c85-8dfa-485d-9580-1d1d855067c1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 318,
+      "height": 348,
+      "rawWidth": 318,
+      "rawHeight": 348,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

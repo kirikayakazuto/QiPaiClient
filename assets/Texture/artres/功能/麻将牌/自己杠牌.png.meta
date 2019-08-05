@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "0fdd361a-b930-49d9-91de-f9c337337a3c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "自己杠牌": {
+      "ver": "1.0.4",
+      "uuid": "9bb835bb-24b8-435f-b95e-e3299d0e7052",
+      "rawTextureUuid": "0fdd361a-b930-49d9-91de-f9c337337a3c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1,
+      "trimX": 0,
+      "trimY": 2,
+      "width": 46,
+      "height": 70,
+      "rawWidth": 46,
+      "rawHeight": 72,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

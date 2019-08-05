@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "d4c640f9-042e-4e9f-b0b2-707479c9a2c5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "房间入口-血流": {
+      "ver": "1.0.4",
+      "uuid": "2f660eb3-13b5-464b-b9c9-0b205a6947ae",
+      "rawTextureUuid": "d4c640f9-042e-4e9f-b0b2-707479c9a2c5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 411,
+      "height": 185,
+      "rawWidth": 411,
+      "rawHeight": 185,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "527f81b5-8a15-480f-83a7-cad9beee0c40",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "用户栏-房卡底框": {
+      "ver": "1.0.4",
+      "uuid": "ef8f61a9-d24b-4de4-a8d1-375035d9dfe7",
+      "rawTextureUuid": "527f81b5-8a15-480f-83a7-cad9beee0c40",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -0.5,
+      "trimX": 0,
+      "trimY": 1,
+      "width": 167,
+      "height": 29,
+      "rawWidth": 167,
+      "rawHeight": 30,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

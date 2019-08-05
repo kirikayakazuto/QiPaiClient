@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "531a3dec-69ea-4560-8f73-81ed0800b79e",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "麻将牌": {
+      "ver": "1.0.4",
+      "uuid": "7bc62b6a-3d2d-4e2f-aa8a-a7ef1c55d230",
+      "rawTextureUuid": "531a3dec-69ea-4560-8f73-81ed0800b79e",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1.5,
+      "trimX": 2,
+      "trimY": 5,
+      "width": 74,
+      "height": 111,
+      "rawWidth": 78,
+      "rawHeight": 118,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

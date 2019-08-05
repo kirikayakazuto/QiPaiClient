@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "87a99a21-afb5-49ac-8288-95eee7656c3c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "广东麻将": {
+      "ver": "1.0.4",
+      "uuid": "8aa864f4-40e2-403f-86df-08b39f50ad7f",
+      "rawTextureUuid": "87a99a21-afb5-49ac-8288-95eee7656c3c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 354,
+      "height": 127,
+      "rawWidth": 354,
+      "rawHeight": 127,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

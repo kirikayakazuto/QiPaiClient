@@ -1,3 +1,7 @@
+import Config from "../config/Config";
+import UserManager from "./UserManager";
+import NetworkManager from "./NetworkManager";
+
 class HttpManager {
     public Get(url: string, callback: Function){
         var xhr = cc.loader.getXMLHttpRequest();
@@ -37,6 +41,58 @@ class HttpManager {
         xhr.send(body);
     }
 
+    /** 获取服务器信息 */
+    public getServerInfo(callback: Function) {
+        this.Get(`http://${Config.ServerInfo.host}:${Config.ServerInfo.port}/serverInfo`, (err, data) => {
+            if(err) {
+                cc.log("获取服务器信息失败!")
+                callback(err, null);
+                return ;
+            }
+            data = JSON.parse(data);
+            callback(null, data);
+        });
+    }
+
+    /** 游客登录 */
+    public geustLogin(guestId: string) {
+        this.getServerInfo((err, data) =>{
+            if(err) return ;
+            let url = `http://${data.host}:${data.port}/OpenIdLogin?openId=${guestId}`;
+            this.Get(url, (err, data) => {
+                if(err) {
+                    cc.log(err);
+                    return ;
+                }
+                let obj = JSON.parse(data);
+                this.authPass(obj);
+            });
+        });
+        
+    }
+
+    /** 连接网络 */
+    public connectNetWork() {
+        let url = `http://${Config.ServerInfo.host}:${Config.ServerInfo.port}/gatewayInfo`;
+        this.Get(url, (err, data) => {
+            if(err) {
+                return ;
+            }
+            data = JSON.parse(data);
+            let wsurl = `ws://${data.host}:${data.port}?token=${UserManager.userInfo.token}`;
+            NetworkManager.connectServer(wsurl);
+        });
+    }
+
+    /** 验证通过 */
+    private authPass(data: any) {
+        if(data.code != 1) {
+            cc.log(data.code, data.message)
+            return ;
+        }
+        UserManager.userInfo = data.userInfo;
+        this.connectNetWork();
+    }
 }
 
 export default new HttpManager();

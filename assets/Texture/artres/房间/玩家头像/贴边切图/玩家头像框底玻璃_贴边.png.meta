@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "be0b54f3-83d9-4aa6-9b59-7a0df77ee62c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "玩家头像框底玻璃_贴边": {
+      "ver": "1.0.4",
+      "uuid": "89da9c02-b98f-45f7-aaa1-179a6b45c6a6",
+      "rawTextureUuid": "be0b54f3-83d9-4aa6-9b59-7a0df77ee62c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -2,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 92,
+      "height": 88,
+      "rawWidth": 96,
+      "rawHeight": 88,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

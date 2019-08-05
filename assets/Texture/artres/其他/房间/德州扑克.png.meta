@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "e0f7dceb-3c2e-45a0-bb49-314d0be2ce63",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "德州扑克": {
+      "ver": "1.0.4",
+      "uuid": "57124286-f12b-46e6-b34c-a86b7682f0b4",
+      "rawTextureUuid": "e0f7dceb-3c2e-45a0-bb49-314d0be2ce63",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 140,
+      "height": 37,
+      "rawWidth": 140,
+      "rawHeight": 37,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,16 +1,14 @@
 import NetWorkManager from "./common/NetworkManager";
 import { Message } from "./protocol/ProtoBufManager";
 import HttpManager from "./common/HttpManager";
+import UIManager from "./UIFrameWorld/UIManager";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class Helloworld extends cc.Component {
 
     start () { 
-    }
-
-    public UserCenterServiceReturn() {
-        
+        UIManager.GetInstance().ShowUIForms("UIForms/LoginForm")
     }
 
     

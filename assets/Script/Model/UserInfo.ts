@@ -18,15 +18,14 @@ export class UserInfo {
     public isActive    : number;       // 是否在线 1表示在线, 0表示不再
     
     public loginDays   : number;
-    public createTime  : Date;
-    public updateTime  : Date;
+    public createTime  : number;
+    public updateTime  : number;
     public status      : number;      //  玩家状态, 1正常, -1被封号删除
 
     public token       : string;
 
 
-    constructor(account: string, password: string) {
-        this.account = account;
-        this.password = password;
+    constructor(openId: string) {
+        this.openId = openId;
     }
 }

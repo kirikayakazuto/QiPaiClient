@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "a136ea1c-ee0f-4f43-84c5-6bdfccf9cb3a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "对家杠牌": {
+      "ver": "1.0.4",
+      "uuid": "42545cf4-c0ec-4e0d-a08d-754e41e199d9",
+      "rawTextureUuid": "a136ea1c-ee0f-4f43-84c5-6bdfccf9cb3a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1,
+      "trimX": 0,
+      "trimY": 2,
+      "width": 39,
+      "height": 59,
+      "rawWidth": 39,
+      "rawHeight": 61,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

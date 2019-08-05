@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "10b045c4-f204-42a7-ae3c-a50068a8cbf0",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "大厅3选场.": {
+      "ver": "1.0.4",
+      "uuid": "24350c4c-2522-4ea6-99f1-2191f8a311d9",
+      "rawTextureUuid": "10b045c4-f204-42a7-ae3c-a50068a8cbf0",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1280,
+      "height": 720,
+      "rawWidth": 1280,
+      "rawHeight": 720,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

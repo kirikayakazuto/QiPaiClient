@@ -1,5 +1,8 @@
 import ProtoManager, { Message } from "../protocol/ProtoBufManager";
 import HttpManager from "./HttpManager";
+import UserManager from "./UserManager";
+import GEventManager from "../UIFrameWorld/GEventManager";
+import Config from "../config/Config";
 
 class NetWorkManager {
     
@@ -27,17 +30,7 @@ class NetWorkManager {
     }
 
     private webSession: WebSocket = null;
-    /** 连接网络 */
-    public connectNetWork(url: string) {
-        HttpManager.Get(url, (err, data) => {
-            if(err) {
-                return ;
-            }
-            data = JSON.parse(data);
-            let wsurl = `ws://${data.host}:${data.port}`;
-            this.connectServer(wsurl);
-        });
-    }
+    
 
     /** 连接websocket */
     public connectServer(url: string) {
@@ -45,7 +38,7 @@ class NetWorkManager {
         this.webSession.binaryType = "arraybuffer";
 
         this.webSession.addEventListener("open",        () => {
-
+            GEventManager.emit('ConnectServerSuccess', null);
         });
         this.webSession.addEventListener("message",     (event: MessageEvent) => {
             this.clientRecvMessage(event.data);
@@ -102,6 +95,10 @@ class NetWorkManager {
         }
         return false;
     }
+
+    
+
+    
 }
 class ElementEvent {
     callback: Function;

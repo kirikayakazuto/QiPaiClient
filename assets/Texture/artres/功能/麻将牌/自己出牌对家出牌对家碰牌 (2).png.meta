@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "a5a5b87c-fabf-4eab-b9ca-1c20b731d5ed",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "自己出牌对家出牌对家碰牌 (2)": {
+      "ver": "1.0.4",
+      "uuid": "7a23f503-084d-43f2-8edb-504f6d62a4c8",
+      "rawTextureUuid": "a5a5b87c-fabf-4eab-b9ca-1c20b731d5ed",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": -1.5,
+      "trimX": 1,
+      "trimY": 3,
+      "width": 39,
+      "height": 59,
+      "rawWidth": 41,
+      "rawHeight": 62,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

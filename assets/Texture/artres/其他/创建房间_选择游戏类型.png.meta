@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "ee69bfc8-00bc-491a-b8bc-da453506115a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "创建房间_选择游戏类型": {
+      "ver": "1.0.4",
+      "uuid": "e9e8d808-617c-40f5-b8ef-b0bfce764bbb",
+      "rawTextureUuid": "ee69bfc8-00bc-491a-b8bc-da453506115a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 174,
+      "height": 47,
+      "rawWidth": 174,
+      "rawHeight": 47,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

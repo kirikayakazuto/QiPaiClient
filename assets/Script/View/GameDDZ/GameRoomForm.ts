@@ -10,10 +10,10 @@ export default class GameRoomForm extends BaseUIForm {
     public CurrentUIType = new UIType(UIFormType.Normal); 
 
 
-    // onLoad () {}
+    // onLoad () {} 
 
     start () {
-        
+
     }
 
     // update (dt) {}

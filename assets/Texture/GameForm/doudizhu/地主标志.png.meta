@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "31c3e58e-532b-45a1-a8d8-109d87d48231",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "地主标志": {
+      "ver": "1.0.4",
+      "uuid": "2bbeefdd-188e-46dc-91a8-418839b5b30e",
+      "rawTextureUuid": "31c3e58e-532b-45a1-a8d8-109d87d48231",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 50,
+      "height": 58,
+      "rawWidth": 50,
+      "rawHeight": 58,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

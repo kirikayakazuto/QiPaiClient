@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "79ad0fe0-1fd3-444a-8f36-a566e8a9b781",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "用户栏-房卡": {
+      "ver": "1.0.4",
+      "uuid": "fcf736ce-fc16-447e-a778-fcdcea5f6445",
+      "rawTextureUuid": "79ad0fe0-1fd3-444a-8f36-a566e8a9b781",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1,
+      "offsetY": 1.5,
+      "trimX": 1,
+      "trimY": 0,
+      "width": 39,
+      "height": 44,
+      "rawWidth": 43,
+      "rawHeight": 47,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

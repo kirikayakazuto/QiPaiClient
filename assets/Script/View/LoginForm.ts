@@ -4,6 +4,7 @@ import { UIFormType } from "../UIFrameWorld/config/SysDefine";
 import UserManager from "../common/UserManager";
 import HttpManager from "../common/HttpManager";
 import GEventManager from "../UIFrameWorld/GEventManager";
+import UIManager from "../UIFrameWorld/UIManager";
 
 const {ccclass, property} = cc._decorator;
 
@@ -41,7 +42,8 @@ export default class LoginForm extends BaseUIForm {
     }
     public loginSuccess() {
         console.log("登录成功");
-        console.log(UserManager.userInfo)
+        GEventManager.emit("UserInfoResources", null)
+        UIManager.GetInstance().ShowUIForms("UIForms/Hall/HallForm")
     }
     // update (dt) {}
 }

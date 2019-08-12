@@ -4,6 +4,7 @@ import UIType from "../../UIFrameWorld/UIType";
 import AdaptationManager, { AdaptationType } from "../../UIFrameWorld/AdaptationManager";
 import GEventManager from "../../UIFrameWorld/GEventManager";
 import { HallSceneType } from "./HallConfig";
+import UIManager from "../../UIFrameWorld/UIManager";
 
 const {ccclass, property} = cc._decorator;
 
@@ -23,6 +24,8 @@ export default class CreateRoomForm extends BaseUIForm {
     NormalNode: cc.Node = null;
     @property(cc.Node)
     FriendNode: cc.Node = null;
+    @property(cc.Node)
+    EntryRoomNode: cc.Node= null;
     // LIFE-CYCLE CALLBACKS:
     isCallFriendType = false;
 
@@ -33,7 +36,8 @@ export default class CreateRoomForm extends BaseUIForm {
 
     start () {
         this.ddzNode.on('click', this.ddzNodeClick, this);
-        this.CreateRoomNode.on('click', this.createRoomClick, this)
+        this.CreateRoomNode.on('click', this.createRoomClick, this);
+        this.EntryRoomNode.on('click', this.entryRoomNode, this);
         this.CloseNode.on('click', () => {
             GEventManager.emit("HallSceneType", HallSceneType.FriendRoom);
         }, this)
@@ -99,6 +103,9 @@ export default class CreateRoomForm extends BaseUIForm {
         GEventManager.emit("HallSceneType", HallSceneType.FriendRoom);
     }
 
+    entryRoomNode() {
+        UIManager.GetInstance().ShowUIForms("UIForms/HallPopUp/HallEntryRoomForm", null);
+    }
 
     // update (dt) {}
 }

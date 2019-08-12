@@ -27,6 +27,7 @@ class LocalStorageManager {
         }
         return JSON.parse(value);
     }
+
 }
 
 export default new LocalStorageManager();

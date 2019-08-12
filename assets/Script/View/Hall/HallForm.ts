@@ -1,7 +1,6 @@
 import BaseUIForm from "../../UIFrameWorld/BaseUIForm";
 import { UIFormType, UIFormShowMode } from "../../UIFrameWorld/config/SysDefine";
 import UIType from "../../UIFrameWorld/UIType";
-import AdaptationManager, { AdaptationType } from "../../UIFrameWorld/AdaptationManager";
 import UIManager from "../../UIFrameWorld/UIManager";
 import GEventManager from "../../UIFrameWorld/GEventManager";
 import { HallSceneType } from "./HallConfig";
@@ -17,11 +16,11 @@ export default class HallForm extends BaseUIForm {
     // onLoad () {}
 
     start () {        
-        UIManager.GetInstance().ShowUIForms("UIForms/UserInfoForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/FriendRankForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/CreateRoomForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/MenuForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/ChooseRoomForm")
+        UIManager.GetInstance().ShowUIForms("UIForms/Hall/UserInfoForm");
+        UIManager.GetInstance().ShowUIForms("UIForms/Hall/FriendRankForm");
+        UIManager.GetInstance().ShowUIForms("UIForms/Hall/CreateRoomForm");
+        UIManager.GetInstance().ShowUIForms("UIForms/Hall/MenuForm");
+        UIManager.GetInstance().ShowUIForms("UIForms/Hall/ChooseRoomForm")
         this.playRoleAnim();
 
         GEventManager.on("HallSceneType", this.switchHallSceneType, this);

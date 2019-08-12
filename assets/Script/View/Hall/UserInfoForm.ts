@@ -4,6 +4,7 @@ import UIType from "../../UIFrameWorld/UIType";
 import AdaptationManager, { AdaptationType } from "../../UIFrameWorld/AdaptationManager";
 import GEventManager from "../../UIFrameWorld/GEventManager";
 import { UserInfo } from "../../Model/UserInfo";
+import UserManager from "../../common/UserManager";
 
 const {ccclass, property} = cc._decorator;
 
@@ -34,10 +35,10 @@ export default class UserInfoForm extends BaseUIForm {
         GEventManager.on("GonggaoInfo", this.updateGonggaoInfo, this);
     }
     /** 更新玩家信息 */
-    private updateUserInfo(data: UserInfo) {
-        this.NickName.string   = data.nickName;
-        this.ChipNumStr.string = "" + data.chip;
-        this.CardNumStr.string = "" + data.roomCard;
+    private updateUserInfo() {
+        this.NickName.string   = UserManager.userInfo.nickName;
+        this.ChipNumStr.string = "" + UserManager.userInfo.chip;
+        this.CardNumStr.string = "" + UserManager.userInfo.roomCard;
         // this.headImg.spriteFrame
 
     }

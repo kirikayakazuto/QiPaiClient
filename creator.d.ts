@@ -1791,160 +1791,156 @@ declare namespace cc {
 	 - 支持与 cc.Action 混用
 	 - 支持设置 {{#crossLink "Easing"}}{{/crossLink}} 或者 progress 函数 */
 	
-	export class Tween {		
-		/**
-		!#en
-		Insert an action or tween to this sequence
-		!#zh
-		插入一个 action 或者 tween 到队列中
-		@param other other 
-		*/
-		then(other: Action|Tween): Tween;		
-		/**
-		!#en
-		Set tween target
-		!#zh
-		设置 tween 的 target
-		@param target target 
-		*/
-		target(target: any): Tween;		
-		/**
-		!#en
-		Start this tween
-		!#zh
-		运行当前 tween 
-		*/
-		start(): Tween;		
-		/**
-		!#en
-		Stop this tween
-		!#zh
-		停止当前 tween 
-		*/
-		stop(): Tween;		
-		/**
-		!#en
-		Clone a tween
-		!#zh
-		克隆当前 tween
-		@param target target 
-		*/
-		clone(target?: any): Tween;		
-		/**
-		!#en
-		Add an action which calculate with absolute value
-		!#zh
-		添加一个对属性进行绝对值计算的 action
-		@param duration duration
-		@param props {scale: 2, position: cc.v3(100, 100, 100)}
-		@param opts opts 
-		*/
-		to(duration: number, props: any, opts: {progress: Function; easing: Function|string; }): Tween;		
-		/**
-		!#en
-		Add an action which calculate with relative value
-		!#zh
-		添加一个对属性进行相对值计算的 action
-		@param duration duration
-		@param props {scale: 2, position: cc.v3(100, 100, 100)}
-		@param opts opts 
-		*/
-		by(duration: number, props: any, opts: {progress: Function; easing: Function|string; }): Tween;		
-		/**
-		!#en
-		Directly set target properties
-		!#zh
-		直接设置 target 的属性
-		@param props props 
-		*/
-		set(props: any): Tween;		
-		/**
-		!#en
-		Add an delay action
-		!#zh
-		添加一个延时 action
-		@param duration duration 
-		*/
-		delay(duration: number): Tween;		
-		/**
-		!#en
-		Add an callback action
-		!#zh
-		添加一个回调 action
-		@param callback callback 
-		*/
-		call(callback: Function): Tween;		
-		/**
-		!#en
-		Add an hide action
-		!#zh
-		添加一个隐藏 action 
-		*/
-		hide(): Tween;		
-		/**
-		!#en
-		Add an show action
-		!#zh
-		添加一个显示 action 
-		*/
-		show(): Tween;		
-		/**
-		!#en
-		Add an removeSelf action
-		!#zh
-		添加一个移除自己 action 
-		*/
-		removeSelf(): Tween;		
-		/**
-		!#en
-		Add an sequence action
-		!#zh
-		添加一个队列 action
-		@param actions actions 
-		*/
-		sequence(actions: [Action|Tween]): Tween;		
-		/**
-		!#en
-		Add an parallel action
-		!#zh
-		添加一个并行 action
-		@param actions actions 
-		*/
-		parallel(actions: [Action|Tween]): Tween;		
-		/**
-		!#en
-		Add an repeat action.
-		This action will integrate before actions to a sequence action as their parameters.
-		!#zh
-		添加一个重复 action，这个 action 会将前一个动作作为他的参数。
-		@param repeatTimes repeatTimes
-		@param action action 
-		*/
-		repeat(repeatTimes: number, action?: Action|Tween): Tween;		
-		/**
-		!#en
-		Add an repeat forever action
-		This action will integrate before actions to a sequence action as their parameters.
-		!#zh
-		添加一个永久重复 action，这个 action 会将前一个动作作为他的参数。
-		@param action action 
-		*/
-		repeatForever(action?: Action|Tween): Tween;		
-		/**
-		!#en
-		Add an reverse time action.
-		This action will integrate before actions to a sequence action as their parameters.
-		!#zh
-		添加一个倒置时间 action，这个 action 会将前一个动作作为他的参数。
-		@param action action 
-		*/
-		reverseTime(action?: Action|Tween): Tween;		
-		/**
-		
-		@param target the target to animate 
-		*/
-		tween(target?: any): Tween;	
-	}	
+	 export class Tween {
+        /**
+         !#en
+         Insert an action or tween to this sequence
+         !#zh
+         插入一个 action 或者 tween 到队列中
+         @param other other
+         */
+        then(other: Action | Tween): void;
+
+        /**
+         !#en
+         Set tween target
+         !#zh
+         设置 tween 的 target
+         */
+        target(): void;
+
+        /**
+         !#en
+         Start this tween
+         !#zh
+         运行当前 tween
+         */
+        start(): void;
+
+        /**
+         !#en
+         Stop this tween
+         !#zh
+         停止当前 tween
+         */
+        stop(): void;
+
+        /**
+         !#en
+         Clone a tween
+         !#zh
+         克隆当前 tween
+         @param target target
+         */
+        clone(target?: any): void;
+
+        /**
+         !#en
+         Add an action which calculate with absolute value
+         !#zh
+         添加一个对属性进行绝对值计算的 action
+         @param duration duration
+         @param props {scale: 2, position: cc.v3(100, 100, 100)}
+         @param opts opts
+         */
+        to(duration: number, props: any, opts?: { progress?: Function; easing: Function | string; }): Tween;
+
+        /**
+         !#en
+         Add an action which calculate with relative value
+         !#zh
+         添加一个对属性进行相对值计算的 action
+         @param duration duration
+         @param props {scale: 2, position: cc.v3(100, 100, 100)}
+         @param opts opts
+         */
+        by(duration: number, props: any, opts?: { progress: Function; easing: Function | string; }): Tween;
+
+        /**
+         !#en
+         Add an delay action
+         !#zh
+         添加一个延时 action
+         @param duration duration
+         */
+        delay(duration: number): Tween;
+
+        /**
+         !#en
+         Add an callback action
+         !#zh
+         添加一个回调 action
+         @param callback callback
+         */
+        call(callback: Function): Tween;
+
+        /**
+         !#en
+         Add an hide action
+         !#zh
+         添加一个隐藏 action
+         */
+        hide(): void;
+
+        /**
+         !#en
+         Add an show action
+         !#zh
+         添加一个显示 action
+         */
+        show(): void;
+
+        /**
+         !#en
+         Add an removeSelf action
+         !#zh
+         添加一个移除自己 action
+         */
+        removeSelf(): void;
+
+        /**
+         !#en
+         Add an sequence action
+         !#zh
+         添加一个队列 action
+         @param actions actions
+         */
+        sequence(actions: [Action]): void;
+
+        /**
+         !#en
+         Add an repeat action.
+         This action will integrate before actions to a sequence action as their parameters.
+         !#zh
+         添加一个重复 action，这个 action 会将之前的 action 整合成一个 sequence action 作为他的参数。
+         @param repeatTimes repeatTimes
+         */
+        repeat(repeatTimes: number): void;
+
+        /**
+         !#en
+         Add an repeat forever action
+         This action will integrate before actions to a sequence action as their parameters.
+         !#zh
+         添加一个永久重复 action，这个 action 会将之前的 action 整合成一个 sequence action 作为他的参数。
+         */
+        repeatForever(): void;
+
+        /**
+         !#en
+         Add an reverse time action.
+         This action will integrate before actions to a sequence action as their parameters.
+         !#zh
+         添加一个倒置时间 action，这个 action 会将之前的 action 整合成一个 sequence action 作为他的参数。
+         */
+        reverseTime(): void;
+
+        /**
+
+         @param target the target to animate
+         */
+        tween(target?: any): Tween;
+    }
 	export function tween(target: any): Tween;
 	/** !#en Class for animation data handling.
 	!#zh 动画剪辑，用于存储动画数据。 */

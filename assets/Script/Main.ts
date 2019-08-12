@@ -5,19 +5,15 @@ const {ccclass, property} = cc._decorator;
 export default class Helloworld extends cc.Component {
 
     start () { 
-        UIManager.GetInstance().ShowUIForms("UIForms/HallForm")
+        UIManager.GetInstance().ShowUIForms("UIForms/Hall/HallForm");
     }
-    
-    
-    
 }
 
 /** 
- * // var $protobuf = require("protobufjs/minimal");
- * var $protobuf = protobuf;
+ *  // var $protobuf = require("protobufjs/minimal");
+ *  var $protobuf = protobuf;
  * 
- * 
- * public UserCenterServiceReturn(message: Message) {
+ *  public UserCenterServiceReturn(message: Message) {
         let obj = LoginPackage.GuestLoginResp.decode(message.body);
         console.log(obj.code)
     }

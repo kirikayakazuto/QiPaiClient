@@ -104,7 +104,7 @@ export default class CreateRoomForm extends BaseUIForm {
     }
 
     entryRoomNode() {
-        UIManager.GetInstance().ShowUIForms("UIForms/HallPopUp/HallEntryRoomForm", null);
+        UIManager.GetInstance().ShowUIForms("UIForms/DDZPopUp/HallEntryRoomForm", null);
     }
 
     // update (dt) {}

@@ -1,5 +1,5 @@
 import BaseUIForm from "../../UIFrameWorld/BaseUIForm";
-import { UIFormType } from "../../UIFrameWorld/config/SysDefine";
+import { UIFormType, UIFormShowMode } from "../../UIFrameWorld/config/SysDefine";
 import UIType from "../../UIFrameWorld/UIType";
 
 const {ccclass, property} = cc._decorator;
@@ -7,7 +7,7 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class GameRoomForm extends BaseUIForm {
 
-    public CurrentUIType = new UIType(UIFormType.Normal); 
+    public CurrentUIType = new UIType(UIFormType.Normal, UIFormShowMode.HideOther); 
 
 
     // onLoad () {} 

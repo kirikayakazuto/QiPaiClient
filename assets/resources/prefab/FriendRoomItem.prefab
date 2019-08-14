@@ -25,10 +25,13 @@
     "_components": [
       {
         "__id__": 5
+      },
+      {
+        "__id__": 7
       }
     ],
     "_prefab": {
-      "__id__": 6
+      "__id__": 8
     },
     "_opacity": 255,
     "_color": {
@@ -76,7 +79,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "房间入口-斗地主",
+    "_name": "bg",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -185,7 +188,11 @@
     "_enabled": true,
     "duration": 0.1,
     "zoomScale": 1.1,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 6
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 3,
@@ -241,6 +248,26 @@
     "_N$target": {
       "__id__": 1
     },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 1
+    },
+    "component": "",
+    "_componentId": "d5c8fFGI09Bx43TdGCrtmf9",
+    "handler": "createButtonClick",
+    "customEventData": ""
+  },
+  {
+    "__type__": "d5c8fFGI09Bx43TdGCrtmf9",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
     "_id": ""
   },
   {

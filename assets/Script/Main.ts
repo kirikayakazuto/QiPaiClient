@@ -17,7 +17,7 @@ export default class Helloworld extends cc.Component {
         let obj = LoginPackage.GuestLoginResp.decode(message.body);
         console.log(obj.code)
     }
-    public testBuffon() {
+    public testBuffon() { 
         let obj = LoginPackage.GuestLoginRep.create({
             guestKey: "123321",
         });

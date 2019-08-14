@@ -5,6 +5,7 @@ import AdaptationManager, { AdaptationType } from "../../UIFrameWorld/Adaptation
 import GEventManager from "../../UIFrameWorld/GEventManager";
 import { HallSceneType } from "./HallConfig";
 import ChooseRoomForm from "./ChooseRoomForm";
+import GameRoomEntry from "../../Control/GameRoomEntry";
 
 const {ccclass, property} = cc._decorator;
 
@@ -47,6 +48,7 @@ export default class NewClass extends BaseUIForm {
             this.titleSprite.spriteFrame = this.titleSpriteArr[1];
             for(let i=0; i<2; i++) {
                 let node = cc.instantiate(this.friendRoomItem);
+                node.getComponent(GameRoomEntry).init(100);
                 node.parent = this.scrollContent;
             }
         }

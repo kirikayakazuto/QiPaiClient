@@ -60,6 +60,8 @@ export default class HallEntryRoomForm extends BaseUIForm {
         if(this.roomNum.length == 6) {
             // 将房间号发送给服务器
             console.log(this.roomNum)
+            this.ShowUIForm("UIForms/GameDDZ/GameRoomForm");
+            this.CloseUIForm();
         }
 
     }

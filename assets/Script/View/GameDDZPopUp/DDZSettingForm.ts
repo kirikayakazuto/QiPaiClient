@@ -6,7 +6,7 @@ import SoundManager from "../../UIFrameWorld/SoundManager";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class HallSettingForm extends BaseUIForm {
+export default class DDZSettingForm extends BaseUIForm {
 
     CurrentUIType = new UIType(UIFormType.PopUp, UIFormShowMode.Normal, UIFormLucenyType.ImPenetrable);
     ClickMaskClose = false;

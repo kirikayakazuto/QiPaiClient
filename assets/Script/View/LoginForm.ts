@@ -43,7 +43,7 @@ export default class LoginForm extends BaseUIForm {
     public loginSuccess() {
         console.log("登录成功");
         GEventManager.emit("UserInfoResources", null)
-        UIManager.GetInstance().ShowUIForms("UIForms/Hall/HallForm")
+        UIManager.GetInstance().ShowUIForms("UIForms/HallForm/HallForm");
     }
     // update (dt) {}
 }

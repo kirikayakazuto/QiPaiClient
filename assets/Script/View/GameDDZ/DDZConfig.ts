@@ -1,4 +1,4 @@
-export const HallConfig = {
+export const DDZConfig = {
     ChooseRoom: [
         {
             lowScore: 500,
@@ -23,7 +23,7 @@ export const HallConfig = {
     ]
 }
 /** 大厅样式 */
-export enum HallSceneType {
+export enum DDZSceneType {
     Normal = 1,
     ChooseRoom = 2,
     FriendRoom = 3,

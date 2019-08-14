@@ -5,7 +5,7 @@ import { UIFormType, UIFormShowMode, UIFormLucenyType } from "../../UIFrameWorld
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class HallEntryRoomForm extends BaseUIForm {
+export default class DDZEntryRoomForm extends BaseUIForm {
 
     CurrentUIType = new UIType(UIFormType.PopUp, UIFormShowMode.Normal, UIFormLucenyType.ImPenetrable);
 

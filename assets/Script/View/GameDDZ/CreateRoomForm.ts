@@ -3,7 +3,7 @@ import { UIFormType, UIFormLucenyType, UIFormShowMode } from "../../UIFrameWorld
 import UIType from "../../UIFrameWorld/UIType";
 import AdaptationManager, { AdaptationType } from "../../UIFrameWorld/AdaptationManager";
 import GEventManager from "../../UIFrameWorld/GEventManager";
-import { HallSceneType } from "./HallConfig";
+import { DDZSceneType } from "./DDZConfig";
 import UIManager from "../../UIFrameWorld/UIManager";
 
 const {ccclass, property} = cc._decorator;
@@ -39,29 +39,29 @@ export default class CreateRoomForm extends BaseUIForm {
         this.CreateRoomNode.on('click', this.createRoomClick, this);
         this.EntryRoomNode.on('click', this.entryRoomNode, this);
         this.CloseNode.on('click', () => {
-            GEventManager.emit("HallSceneType", HallSceneType.FriendRoom);
+            GEventManager.emit("DDZSceneType", DDZSceneType.FriendRoom);
         }, this)
-        GEventManager.on("HallSceneType", this.switchHallSceneType, this);
-        this.initList(HallSceneType.Normal)
+        GEventManager.on("DDZSceneType", this.switchDDZSceneType, this);
+        this.initList(DDZSceneType.Normal)
     }
 
-    initList(type: HallSceneType) {
-        if(type == HallSceneType.Normal) {
+    initList(type: DDZSceneType) {
+        if(type == DDZSceneType.Normal) {
             this.CloseNode.active = false;
             this.NormalNode.active = true;
             this.FriendNode.active = false;
         }
-        if(type == HallSceneType.FriendRoom) {
+        if(type == DDZSceneType.FriendRoom) {
             this.CloseNode.active = true;
             this.NormalNode.active = false;
             this.FriendNode.active = true;
         }
     }
 
-    switchHallSceneType(type: any) {
+    switchDDZSceneType(type: any) {
         AdaptationManager.GetInstance().removeAdaptationToForm(this.node);
         switch(type) {
-            case HallSceneType.Normal:
+            case DDZSceneType.Normal:
                 this.initList(type);
                 this.node.runAction(cc.sequence(
                     cc.moveBy(0.3, cc.v2(-(this.node.width + 20), 0)).easing(cc.easeBackIn()),
@@ -70,10 +70,10 @@ export default class CreateRoomForm extends BaseUIForm {
                     })
                 ));
             break;
-            case HallSceneType.ChooseRoom:
+            case DDZSceneType.ChooseRoom:
                 this.node.runAction(cc.moveBy(0.3, cc.v2(this.node.width + 20, 0)).easing(cc.easeBackIn()));
             break;
-            case HallSceneType.FriendRoom:
+            case DDZSceneType.FriendRoom:
                 this.node.runAction(cc.sequence([
                     cc.moveBy(0.3, cc.v2(this.node.width + 20, 0)).easing(cc.easeBackIn()),
                     cc.callFunc(() => {
@@ -82,7 +82,7 @@ export default class CreateRoomForm extends BaseUIForm {
                             this.isCallFriendType = true;
                         }
                         else {
-                            this.initList(HallSceneType.Normal)
+                            this.initList(DDZSceneType.Normal)
                             this.isCallFriendType = false;
                         }
                     }),
@@ -96,11 +96,11 @@ export default class CreateRoomForm extends BaseUIForm {
     }
 
     ddzNodeClick() {
-        GEventManager.emit("HallSceneType", HallSceneType.ChooseRoom);
+        GEventManager.emit("DDZSceneType", DDZSceneType.ChooseRoom);
     }
     /** 创建房间 */
     createRoomClick() {
-        GEventManager.emit("HallSceneType", HallSceneType.FriendRoom);
+        GEventManager.emit("DDZSceneType", DDZSceneType.FriendRoom);
     }
 
     entryRoomNode() {

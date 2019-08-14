@@ -1,7 +1,7 @@
 import BaseUIForm from "../../UIFrameWorld/BaseUIForm";
 import UIType from "../../UIFrameWorld/UIType";
 import { UIFormType } from "../../UIFrameWorld/config/SysDefine";
-import { HallConfig, HallSceneType } from "./HallConfig";
+import { DDZConfig, DDZSceneType } from "./DDZConfig";
 import UtilHelper from "../../Helper/UtilHelper";
 import AdaptationManager, { AdaptationType } from "../../UIFrameWorld/AdaptationManager";
 import UIManager from "../../UIFrameWorld/UIManager";
@@ -25,18 +25,18 @@ export default class ChooseRoomForm extends BaseUIForm {
     start () {
         this.initChoose();
         this.CloseNode.on('click', () => {
-            GEventManager.emit("HallSceneType", HallSceneType.Normal);
+            GEventManager.emit("DDZSceneType", DDZSceneType.Normal);
         }, this)
-        GEventManager.on("HallSceneType", this.switchHallSceneType, this);
+        GEventManager.on("DDZSceneType", this.switchDDZSceneType, this);
     }
 
-    switchHallSceneType(type: any) {
+    switchDDZSceneType(type: any) {
         AdaptationManager.GetInstance().removeAdaptationToForm(this.node);
         switch(type) {
-            case HallSceneType.Normal:
+            case DDZSceneType.Normal:
                 this.node.runAction(cc.moveBy(0.3, cc.v2(this.node.width + 70, 0)).easing(cc.easeBackIn()));
             break;
-            case HallSceneType.ChooseRoom:
+            case DDZSceneType.ChooseRoom:
                 this.node.runAction(cc.sequence(
                     cc.moveBy(0.3, cc.v2(-(this.node.width + 70), 0)).easing(cc.easeBackIn()),
                     cc.callFunc(()=>{
@@ -61,7 +61,7 @@ export default class ChooseRoomForm extends BaseUIForm {
             clickEventHandler.target = this.node; // 这个 node 节点是你的事件处理代码组件所属的节点
             clickEventHandler.component = "ChooseRoomForm";// 这个是代码文件名
             clickEventHandler.handler = "entryRoomByType";
-            clickEventHandler.customEventData = HallConfig.ChooseRoom[i].roomType;
+            clickEventHandler.customEventData = DDZConfig.ChooseRoom[i].roomType;
 
             let button = this.RoomList[i].getComponent(cc.Button);            
             button.clickEvents.push(clickEventHandler);

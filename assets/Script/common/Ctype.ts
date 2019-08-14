@@ -1,6 +1,16 @@
+/** 大厅 */
+export enum HallCtype {
+    EnterGame = 1,
+}
+
 /** 斗地主ctype */
 export enum DDZGameCtype {
-    CreateRoom = 1,
-    EntryRoom = 2,
-    SitDown = 3,
+    EntryGameScene = 1,
+    CreateRoom = 2,
+    EntryRoom = 3,
+    SitDown = 4,
+}
+
+export enum BroadcastCtype {
+    Broadcast = 1,
 }

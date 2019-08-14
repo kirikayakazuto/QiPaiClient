@@ -5,7 +5,7 @@ import UIType from "../../UIFrameWorld/UIType";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class HallMailForm extends BaseUIForm {
+export default class DDZMailForm extends BaseUIForm {
 
     CurrentUIType = new UIType(UIFormType.PopUp, UIFormShowMode.Normal, UIFormLucenyType.ImPenetrable);
     ClickMaskClose = false;

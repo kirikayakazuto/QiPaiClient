@@ -28,10 +28,13 @@
     "_components": [
       {
         "__id__": 9
+      },
+      {
+        "__id__": 10
       }
     ],
     "_prefab": {
-      "__id__": 10
+      "__id__": 11
     },
     "_opacity": 255,
     "_color": {
@@ -296,6 +299,16 @@
   },
   {
     "__type__": "73f33Pv1HRA77nQYmtEAFyI",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_id": ""
+  },
+  {
+    "__type__": "a9550yYjpFOF5SH98zzxJIQ",
     "_name": "",
     "_objFlags": 0,
     "node": {

@@ -21,3 +21,4 @@ export default class TimeCount extends cc.Component {
 
     // update (dt) {}
 }
+ 

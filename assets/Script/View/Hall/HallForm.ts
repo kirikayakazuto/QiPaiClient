@@ -2,8 +2,12 @@ import BaseUIForm from "../../UIFrameWorld/BaseUIForm";
 import { UIFormType, UIFormShowMode } from "../../UIFrameWorld/config/SysDefine";
 import UIType from "../../UIFrameWorld/UIType";
 import UIManager from "../../UIFrameWorld/UIManager";
-import GEventManager from "../../UIFrameWorld/GEventManager";
-import { HallSceneType } from "./HallConfig";
+import NetworkManager from "../../common/NetworkManager";
+import {modelPackage} from "../../protocol/protobuf/Hall"
+import { GameType } from "../../common/GameType";
+import { Stype } from "../../common/Stype";
+import { DDZGameCtype, HallCtype } from "../../common/Ctype";
+import HallLogic from "./HallLogic";
 
 const {ccclass, property} = cc._decorator;
 
@@ -13,39 +17,21 @@ export default class HallForm extends BaseUIForm {
     public CurrentUIType = new UIType(UIFormType.Normal, UIFormShowMode.HideOther);
 
     roleAction: cc.Action = null;
+    // LIFE-CYCLE CALLBACKS:
+
     // onLoad () {}
 
-    start () {        
-        UIManager.GetInstance().ShowUIForms("UIForms/Hall/UserInfoForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/Hall/FriendRankForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/Hall/CreateRoomForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/Hall/MenuForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/Hall/ChooseRoomForm")
-        this.playRoleAnim();
-
-        GEventManager.on("HallSceneType", this.switchHallSceneType, this);
-    }
-    /** 切换 */
-    switchHallSceneType(type: HallSceneType) {
-        if(this.roleAction && this.roleAction.isDone() == false) {
-            return ;
-        }
-        let role = cc.find("role", this.node);
-        switch(type) {
-            case HallSceneType.Normal:
-                this.roleAction = role.runAction(cc.moveBy(0.3, cc.v2(380, 0)).easing(cc.easeBackIn()));
-            break;
-            case HallSceneType.ChooseRoom:
-                this.roleAction = role.runAction(cc.moveBy(0.3, cc.v2(-380, 0)).easing(cc.easeBackIn()));
-            break;
-        }
+    start () {
+        UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/UserInfoForm");
+        
     }
 
-    playRoleAnim() {
-        let role = cc.find("role", this.node)
-        role.runAction(cc.repeatForever(cc.sequence(cc.scaleTo(5, 1.1),  cc.scaleTo(5, 1))));
+    HallServiceReturn() {
+
     }
 
-
-    update (dt) {}
+    enterGame() {
+        this.getComponent(HallLogic).enterGame(1);
+    }
+    // update (dt) {}
 }

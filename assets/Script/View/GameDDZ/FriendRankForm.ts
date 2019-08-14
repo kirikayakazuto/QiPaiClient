@@ -3,7 +3,7 @@ import { UIFormType } from "../../UIFrameWorld/config/SysDefine";
 import UIType from "../../UIFrameWorld/UIType";
 import AdaptationManager, { AdaptationType } from "../../UIFrameWorld/AdaptationManager";
 import GEventManager from "../../UIFrameWorld/GEventManager";
-import { HallSceneType } from "./HallConfig";
+import { DDZSceneType } from "./DDZConfig";
 import ChooseRoomForm from "./ChooseRoomForm";
 import GameRoomEntry from "../../Control/GameRoomEntry";
 
@@ -31,20 +31,20 @@ export default class NewClass extends BaseUIForm {
     // onLoad () {}
 
     start () {
-        GEventManager.on("HallSceneType", this.switchHallSceneType, this);
-        this.initList(HallSceneType.Normal)
+        GEventManager.on("DDZSceneType", this.switchDDZSceneType, this);
+        this.initList(DDZSceneType.Normal)
     }
 
-    initList(type: HallSceneType) {
+    initList(type: DDZSceneType) {
         this.scrollContent.removeAllChildren();
-        if(type == HallSceneType.Normal) {
+        if(type == DDZSceneType.Normal) {
             this.titleSprite.spriteFrame = this.titleSpriteArr[0];
             for(let i=0; i<5; i++) {
                 let node = cc.instantiate(this.friendInfoItem);
                 node.parent = this.scrollContent;
             } 
         }
-        if(type == HallSceneType.FriendRoom) {
+        if(type == DDZSceneType.FriendRoom) {
             this.titleSprite.spriteFrame = this.titleSpriteArr[1];
             for(let i=0; i<2; i++) {
                 let node = cc.instantiate(this.friendRoomItem);
@@ -54,10 +54,10 @@ export default class NewClass extends BaseUIForm {
         }
     }
 
-    switchHallSceneType(type: any) {
+    switchDDZSceneType(type: any) {
         AdaptationManager.GetInstance().removeAdaptationToForm(this.node);
         switch(type) {
-            case HallSceneType.Normal:
+            case DDZSceneType.Normal:
                 this.initList(type);
                 this.node.runAction(cc.sequence(
                     cc.moveBy(0.3, cc.v2((this.node.width + 20), 0)).easing(cc.easeBackIn()),
@@ -66,10 +66,10 @@ export default class NewClass extends BaseUIForm {
                     })
                 ));
             break;
-            case HallSceneType.ChooseRoom:
+            case DDZSceneType.ChooseRoom:
                 this.node.runAction(cc.moveBy(0.3, cc.v2(-(this.node.width + 20), 0)).easing(cc.easeBackIn()));
             break;
-            case HallSceneType.FriendRoom:
+            case DDZSceneType.FriendRoom:
                 this.node.runAction(cc.sequence([
                     cc.moveBy(0.3, cc.v2(-(this.node.width + 20), 0)).easing(cc.easeBackIn()),
                     cc.delayTime(0.1),
@@ -79,7 +79,7 @@ export default class NewClass extends BaseUIForm {
                             this.isCallFriendType = true;
                         }
                         else {
-                            this.initList(HallSceneType.Normal)
+                            this.initList(DDZSceneType.Normal)
                             this.isCallFriendType = false;
                         }
                         

@@ -33,7 +33,7 @@ export default class HallLogic extends cc.Component {
             gameType: GameType.Doudizhu,
         });
         var uint8 = modelPackage.EntryGame.encode(obj).finish();
-        NetworkManager.sendMessage(Stype.HallService, HallCtype.EnterGame, uint8, 1);
+        NetworkManager.sendMessage(Stype.HallService, HallCtype.EnterGame, uint8, CodeEnum.OK);
     }
 
     // update (dt) {}
@@ -45,4 +45,6 @@ function entryGame(m: Message) {
         return ;
     }
     cc.log("进入游戏场景");
+    UIManager.GetInstance().CloseUIForms("UIForms/HallForm/HallForm");
+    UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/DDZForm");
 }

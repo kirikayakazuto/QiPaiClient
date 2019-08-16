@@ -15,14 +15,17 @@ const {ccclass, property} = cc._decorator;
 export default class HallForm extends BaseUIForm {
 
     public CurrentUIType = new UIType(UIFormType.Normal, UIFormShowMode.HideOther);
+    // CloseAndDestory = true;
 
     roleAction: cc.Action = null;
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {}
+    init() {
+        UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/UserInfoForm");
+    }
 
     start () {
-        UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/UserInfoForm");
         
     }
 

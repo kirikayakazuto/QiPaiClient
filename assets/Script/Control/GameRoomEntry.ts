@@ -1,5 +1,9 @@
 import UILoader from "../UIFrameWorld/UILoader";
 import RoomTypeConfig from "../config/RoomTypeConfig";
+import NetworkManager from "../common/NetworkManager";
+import { Stype } from "../common/Stype";
+import { DDZGameCtype } from "../common/Ctype";
+import { CodeEnum } from "../common/CodeEnum";
 
 const {ccclass, property} = cc._decorator;
 
@@ -23,7 +27,7 @@ export default class GameRoomEntry extends cc.Component {
     }
 
     createButtonClick() {
-        
+        NetworkManager.sendMessage(Stype.GameService, DDZGameCtype.CreateRoom, null, CodeEnum.OK);
     }
 
     // update (dt) {}

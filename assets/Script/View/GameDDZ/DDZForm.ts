@@ -14,15 +14,16 @@ export default class HallForm extends BaseUIForm {
 
     roleAction: cc.Action = null;
     // onLoad () {}
-
-    start () {        
+    init() {
         UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/UserInfoForm");
         UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/FriendRankForm");
         UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/CreateRoomForm");
         UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/MenuForm");
-        UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/ChooseRoomForm")
-        this.playRoleAnim();
+        UIManager.GetInstance().ShowUIForms("UIForms/DDZForm/ChooseRoomForm");
+    }
 
+    start () {
+        this.playRoleAnim();
         GEventManager.on("DDZSceneType", this.switchDDZSceneType, this);
     }
     /** 切换 */

@@ -1,5 +1,3 @@
-import NetworkManager from "../../common/NetworkManager";
-
 const {ccclass, property} = cc._decorator;
 
 @ccclass

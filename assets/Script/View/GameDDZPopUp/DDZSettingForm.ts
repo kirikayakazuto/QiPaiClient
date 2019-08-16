@@ -2,6 +2,10 @@ import BaseUIForm from "../../UIFrameWorld/BaseUIForm";
 import UIType from "../../UIFrameWorld/UIType";
 import { UIFormType, UIFormShowMode, UIFormLucenyType } from "../../UIFrameWorld/config/SysDefine";
 import SoundManager from "../../UIFrameWorld/SoundManager";
+import NetworkManager from "../../common/NetworkManager";
+import { Stype } from "../../common/Stype";
+import { DDZGameCtype } from "../../common/Ctype";
+import { CodeEnum } from "../../common/CodeEnum";
 
 const {ccclass, property} = cc._decorator;
 
@@ -21,7 +25,8 @@ export default class DDZSettingForm extends BaseUIForm {
     effectToggle: cc.Toggle = null;
     @property(cc.Node)
     logout: cc.Node = null;
-
+    @property(cc.Node)
+    backToHall: cc.Node = null;
 
     @property(cc.Node)
     CloseNode: cc.Node= null;
@@ -29,7 +34,6 @@ export default class DDZSettingForm extends BaseUIForm {
     startPosition: cc.Vec2;
 
     init(obj: any) {
-        
         this.startPosition = this.node.convertToNodeSpace(obj.startPosition);
     }
     // onLoad () {}
@@ -42,6 +46,10 @@ export default class DDZSettingForm extends BaseUIForm {
         this.CloseNode.on('click', () => {
             this.CloseUIForm();
         }, this)
+
+        this.backToHall.on('click', () => {
+            NetworkManager.sendMessage(Stype.GameService, DDZGameCtype.ExitDDZGame, null, CodeEnum.OK);
+        }, this);
 
         this.initVolumeBar();
     }

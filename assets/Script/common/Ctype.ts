@@ -5,10 +5,13 @@ export enum HallCtype {
 
 /** 斗地主ctype */
 export enum DDZGameCtype {
-    EntryGameScene = 1,
+    EntryDDZGame = 1,
     CreateRoom = 2,
     EntryRoom = 3,
     SitDown = 4,
+
+    ExitDDZGame = 101,
+    ExitRoom = 102,
 }
 
 export enum BroadcastCtype {

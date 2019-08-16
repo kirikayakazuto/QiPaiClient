@@ -26,10 +26,10 @@ export default class NewClass extends BaseUIForm {
         }
         switch(data) {
             case "sz":
-                UIManager.GetInstance().ShowUIForms("UIForms/HallPopUp/HallSettingForm", obj);
+                UIManager.GetInstance().ShowUIForms("UIForms/DDZPopUp/DDZSettingForm", obj);
             break;
             case "yj":
-                UIManager.GetInstance().ShowUIForms("UIForms/HallPopUp/HallMailForm", obj);
+                UIManager.GetInstance().ShowUIForms("UIForms/DDZPopUp/DDZMailForm", obj);
             break;
             case "fx":
             break;
@@ -40,7 +40,7 @@ export default class NewClass extends BaseUIForm {
             case "zj":
             break;
             case "sc":
-                UIManager.GetInstance().ShowUIForms("UIForms/HallPopUp/HallShopForm", obj);
+                UIManager.GetInstance().ShowUIForms("UIForms/DDZPopUp/DDZShopForm", obj);
             break;
         }
     }

@@ -53,7 +53,7 @@ export default class BaseUIForm extends cc.Component {
     }
     /**
      * 隐藏, 已经进行删除操作(在全局表中有缓存), 需要重新showUIForm
-     */
+    */
     public Hiding() {
         if(this.CurrentUIType.UIForms_Type == UIFormType.PopUp) {
             UIMaskManager.getInstance().removeMaskWindow(this.node); 
@@ -66,6 +66,7 @@ export default class BaseUIForm extends cc.Component {
      * 暂时无效果, 预计实现成(去除冻结的效果)
      */
     public ReDisPlay() {
+        this.node.active = true;
         if(this.CurrentUIType.UIForms_Type == UIFormType.PopUp) {}
     }
     /**

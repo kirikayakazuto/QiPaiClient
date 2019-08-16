@@ -1,6 +1,7 @@
-import BaseUIForm from "../../UIFrameWorld/BaseUIForm";
-import { UIFormType, UIFormShowMode } from "../../UIFrameWorld/config/SysDefine";
-import UIType from "../../UIFrameWorld/UIType";
+import BaseUIForm from "../../../UIFrameWorld/BaseUIForm";
+import { UIFormType, UIFormShowMode } from "../../../UIFrameWorld/config/SysDefine";
+import UIType from "../../../UIFrameWorld/UIType";
+
 
 const {ccclass, property} = cc._decorator;
 
@@ -13,7 +14,7 @@ export default class GameRoomForm extends BaseUIForm {
     // onLoad () {} 
 
     start () {
-
+        this.ShowUIForm("UIForms/DDZForm/MenuRoomForm");
     }
 
     // update (dt) {}

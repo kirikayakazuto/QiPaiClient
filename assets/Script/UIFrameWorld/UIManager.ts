@@ -60,10 +60,12 @@ export default class UIManager extends cc.Component {
         
         let baseUIForms = await this.LoadFormsToAllUIFormsCatch(uiFormName);
         if(baseUIForms == null) return ;
+
         // 初始化窗体名称
         baseUIForms.UIFormName = uiFormName;
-        // 初始化窗体信息
-        baseUIForms.init(obj);
+        // 初始化窗体信息   如果预制体默认active为true 那么先执行了onload start 在执行的init
+        
+        
         // 是否清理栈内窗口
         if(baseUIForms.CurrentUIType.IsClearStack) {
             this.ClearStackArray();
@@ -71,15 +73,17 @@ export default class UIManager extends cc.Component {
         
         switch(baseUIForms.CurrentUIType.UIForms_ShowMode) {
             case UIFormShowMode.Normal:                             // 普通模式显示
-                this.LoadUIToCurrentCache(uiFormName);
+                this.LoadUIToCurrentCache(uiFormName, obj);
             break;
             case UIFormShowMode.ReverseChange:                      // 反向切换
-                this.PushUIFormToStack(uiFormName);
+                this.PushUIFormToStack(uiFormName, obj);
             break;
             case UIFormShowMode.HideOther:                          // 隐藏其他
-                this.EnterUIFormsAndHideOther(uiFormName);
+                this.EnterUIFormsAndHideOther(uiFormName, obj);
             break;
         }
+
+        
     }
     /**
      * 重要方法 关闭一个UIForm
@@ -133,6 +137,7 @@ export default class UIManager extends cc.Component {
         if(baseUIForm == null) {
             return ;
         }
+        node.active = false;
         switch(baseUIForm.CurrentUIType.UIForms_Type) {
             case UIFormType.Normal:
                 UIManager.GetInstance()._NoNormal.addChild(node);
@@ -144,7 +149,6 @@ export default class UIManager extends cc.Component {
                 UIManager.GetInstance()._NoPopUp.addChild(node);
             break;
         }
-        node.active = false;
         this._MapAllUIForms[strUIFormPath] = baseUIForm;
         
         return baseUIForm;
@@ -176,7 +180,7 @@ export default class UIManager extends cc.Component {
      * 加载到缓存中, 
      * @param uiFormName 
      */
-    private LoadUIToCurrentCache(uiFormName: string) {
+    private LoadUIToCurrentCache(uiFormName: string, obj: any) {
         let baseUIForm: BaseUIForm = null;
         let baseUIFormFromAllCache: BaseUIForm = null;
 
@@ -185,6 +189,7 @@ export default class UIManager extends cc.Component {
 
         baseUIFormFromAllCache = this._MapAllUIForms[uiFormName];
         if(baseUIFormFromAllCache != null) {
+            baseUIFormFromAllCache.init(obj);
             this._MapCurrentShowUIForms[uiFormName] = baseUIFormFromAllCache;
             baseUIFormFromAllCache.DisPlay();
         }
@@ -193,13 +198,14 @@ export default class UIManager extends cc.Component {
      * 加载到栈中
      * @param uiFormName 
      */
-    private PushUIFormToStack(uiFormName: string) {
+    private PushUIFormToStack(uiFormName: string, obj: any) {
         if(this._StaCurrentUIForms.length > 0) {
             let topUIForm = this._StaCurrentUIForms[this._StaCurrentUIForms.length-1];
             topUIForm.Freeze();
         }
         let baseUIForm = this._MapAllUIForms[uiFormName];
         if(baseUIForm == null) return ;
+        baseUIForm.init(obj);
         // 加入栈中, 同时设置其zIndex 使得后进入的窗体总是显示在上面
         this._StaCurrentUIForms.push(baseUIForm);       
         baseUIForm.node.zIndex = this._StaCurrentUIForms.length;
@@ -208,7 +214,7 @@ export default class UIManager extends cc.Component {
     /**
      * 加载时, 关闭其他窗口
      */
-    private EnterUIFormsAndHideOther(uiFormName: string) {
+    private EnterUIFormsAndHideOther(uiFormName: string, obj: any) {
 
         let baseUIForm = this._MapCurrentShowUIForms[uiFormName];
         if(baseUIForm != null) return ;
@@ -216,14 +222,19 @@ export default class UIManager extends cc.Component {
         // 隐藏其他窗口 
         for(let key in this._MapCurrentShowUIForms) {
             this._MapCurrentShowUIForms[key].Hiding();
+            this._MapCurrentShowUIForms[key] = null;
+            delete this._MapCurrentShowUIForms[key];
         }
         this._StaCurrentUIForms.forEach(uiForm => {
             uiForm.Hiding();
+            this._MapCurrentShowUIForms[uiForm.UIFormName] = null;
+            delete this._MapCurrentShowUIForms[uiForm.UIFormName];
         });
 
         let baseUIFormFromAll = this._MapAllUIForms[uiFormName];
         
         if(baseUIFormFromAll == null) return ;
+        baseUIFormFromAll.init(obj);
 
         this._MapCurrentShowUIForms[uiFormName] = baseUIFormFromAll;
         baseUIFormFromAll.DisPlay();
@@ -266,13 +277,13 @@ export default class UIManager extends cc.Component {
         this._MapCurrentShowUIForms[uiFormName] = null;
         delete this._MapCurrentShowUIForms[uiFormName];
 
-        // 隐藏其他窗口 
-        for(let key in this._MapCurrentShowUIForms) {
+        //  显示其他窗口 
+        /* for(let key in this._MapCurrentShowUIForms) {
             this._MapCurrentShowUIForms[key].ReDisPlay();
         }
         this._StaCurrentUIForms.forEach(uiForm => {
             uiForm.ReDisPlay();
-        });
+        }); */
     }
 
 
